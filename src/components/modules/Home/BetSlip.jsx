@@ -2,15 +2,19 @@ import { useEffect, useState } from "react";
 import img from "../../../assets/img";
 
 const BetSlip = () => {
-  const [backgroundPosition, setBackgroundPosition] = useState(7);
+  const [showAnimation, setShowAnimation] = useState(false);
+  const [backgroundPosition, setBackgroundPosition] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setBackgroundPosition((prev) => prev - 1);
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, []);
+    if (showAnimation) {
+      const interval = setInterval(() => {
+        setBackgroundPosition((prev) => prev - 1);
+      }, 100);
+      return () => clearInterval(interval);
+    } else {
+      setBackgroundPosition(0);
+    }
+  }, [showAnimation]);
 
   return (
     <div className="flex flex-col w-screen gap-2 p-1 sm:p-3 max-w-7xl lg:flex-row lg:mx-auto">
@@ -394,7 +398,10 @@ const BetSlip = () => {
                         style={{ zIndex: 1000 }}
                       >
                         <div className="w-full flex justify-center items-center flex-grow">
-                          <button className="relative z-30 w-full rounded-[16px] flex justify-center items-center flex-grow px-5 py-2.5 overflow-hidden group bg-green-500 text-white transition-all ease-out duration-300">
+                          <button
+                            onClick={() => setShowAnimation((prev) => !prev)}
+                            className="relative z-30 w-full rounded-[16px] flex justify-center items-center flex-grow px-5 py-2.5 overflow-hidden group bg-green-500 text-white transition-all ease-out duration-300"
+                          >
                             <span className="shimmer" />
                             <span className="text-lg font-semibold text-slate-50">
                               Next Bet
@@ -539,7 +546,10 @@ const BetSlip = () => {
                         style={{ zIndex: 1000 }}
                       >
                         <div className="w-full flex justify-center items-center flex-grow">
-                          <button className="relative z-30 w-full rounded-[16px] flex justify-center items-center flex-grow px-5 py-2.5 overflow-hidden group bg-green-500 text-white transition-all ease-out duration-300">
+                          <button
+                            onClick={() => setShowAnimation((prev) => !prev)}
+                            className="relative z-30 w-full rounded-[16px] flex justify-center items-center flex-grow px-5 py-2.5 overflow-hidden group bg-green-500 text-white transition-all ease-out duration-300"
+                          >
                             <span className="shimmer" />
                             <span className="text-lg font-semibold text-slate-50">
                               Next Bet
