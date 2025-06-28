@@ -3,16 +3,22 @@ import img from "../../assets/img";
 
 const Aviator3D = ({ showAnimation, isCrashGame }) => {
   const [backgroundPosition, setBackgroundPosition] = useState(0);
+
   useEffect(() => {
     if (showAnimation) {
       const interval = setInterval(() => {
-        setBackgroundPosition((prev) => prev - 1);
+        setBackgroundPosition((prev) => {
+          const decrement = isCrashGame ? 0.1 : 1;
+          return Number((prev - decrement).toFixed(2));
+        });
       }, 100);
+
       return () => clearInterval(interval);
     } else {
       setBackgroundPosition(0);
     }
-  }, [showAnimation]);
+  }, [showAnimation, isCrashGame]);
+
   return (
     <div
       className={`h-52 md:h-80 lg:h-96 relative select-none flex overflow-hidden transition-all ease-linear items-center justify-center w-full shadow-inner border-[1px] border-brandBorder rounded-2xl false false false false aviator-bg ${
