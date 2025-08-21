@@ -7,8 +7,11 @@ import Header from "./Header";
 import History from "./History";
 import HowToPlayDesktop from "./HowToPlayDesktop";
 import HowToPlayMobile from "./HowToPlayMobile";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+  const { token } = useSelector((state) => state.auth);
+  const errorMessage = sessionStorage.getItem("errorMessage");
   const [showAnimation, setShowAnimation] = useState(false);
 
   const [isCrashGame, setIsCrashGame] = useState(false);
@@ -27,7 +30,7 @@ const Home = () => {
     }, 3000);
   };
 
-  return (
+  return token ? (
     <div
       style={{ backgroundColor: "#0a0928" }}
       className="theme-aviator flex flex-col w-full h-full"
@@ -56,6 +59,13 @@ const Home = () => {
         </div>
         <HowToPlayMobile />
         <Footer />
+      </div>
+    </div>
+  ) : (
+    <div className="error-container">
+      <div className="alert alert-danger text-center m-0 " role="alert">
+        {errorMessage ||
+          "URL parameters are missing or invalid. Key: token | Value"}
       </div>
     </div>
   );

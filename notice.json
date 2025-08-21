@@ -1,41 +1,21 @@
 {
   "status": {
-    "statusCode": "0",
+    "statusCode": 200,
     "statusDesc": "Success"
   },
   "result": {
     "settings": {
-      "siteTitle": "Aura",
-      "siteUrl": "magicwin.zip",
-      "referral": true,
-      "balanceApiLoop": false,
-      "registration": true,
+      "siteTitle": "Aviator 3D",
       "disabledDevtool": false,
-      "otp": true,
-      "interval": 700,
-      "apkLink": "https://a23money.com/site.apk",
-      "casinoCurrency": "INR",
-      "chaportAppId": "",
-      "otpless": true,
-      "paymentIntent": false,
-      "betFairCashOut": true,
-      "baseUrl": "",
-      "mac88": true,
-      "b2c": true,
-      "build": "production"
+      "baseUrl": "/aviator_3d",
+      "lobby": "https://aura365.io"
     },
-    "logo": {
-      "height": 55,
-      "width": 125,
-      "format": "png"
-    },
+
     "endpoint": {
       "eventDetails": "https://dream11.dev/api/exchange/encrypted/odds/event",
       "casino": "https://dream11.dev/api/funbar/casino.php",
       "auth": "https://api7.live/api/funbar/auth.php",
-      "order": "https://dream11.dev/api/funbar/order.php",
-      "pnl": "https://dream11.dev/api/funbar/pnl.php",
-      "bets": "https://dream11.dev/api/funbar/bets.php"
+      "order": "https://dream11.dev/api/funbar/order.php"
     }
   },
   "success": true
