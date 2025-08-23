@@ -7,7 +7,7 @@
     "settings": {
       "siteTitle": "Aviator 3D",
       "disabledDevtool": false,
-      "baseUrl": "/aviator_3d",
+      "baseUrl": "",
       "lobby": "https://aura365.io"
     },
 
